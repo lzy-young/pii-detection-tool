@@ -81,7 +81,7 @@ result = predict(text)
 
 ### 2. LlamaFactory+tokenizer+vllm (推理速度最快)
 - 参考LlamaFactory文档合并权重
-- 使用vllm加快推理 (具体代码参考`eval.py`):
+- 使用vllm加快推理 (具体代码参考`rum_llm/eval.py`):
 ```python
 from vllm import LLM, SamplingParams
 from transformers import AutoTokenizer
