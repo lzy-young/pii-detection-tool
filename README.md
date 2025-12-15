@@ -79,7 +79,7 @@ def predict(text):
 result = predict(text)
 ```
 
-### 2. LlamaFactory+tokenizer+Vllm (推理速度最快)
+### 2. LlamaFactory+tokenizer+vllm (推理速度最快)
 - 参考LlamaFactory文档合并权重
 - 使用vllm加快推理 (具体代码参考`eval.py`):
 ```python
