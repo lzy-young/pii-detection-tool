@@ -1,0 +1,67 @@
+### model
+model_name_or_path: ../Qwen3-14B
+trust_remote_code: true
+
+### method
+stage: sft
+do_train: true
+finetuning_type: lora
+lora_rank: 32
+lora_alpha: 64
+lora_target: all
+lora_dropout: 0.1
+
+
+### dataset
+dataset: ai4privacy_train
+template: qwen
+cutoff_len: 4096
+overwrite_cache: true
+preprocessing_num_workers: 16
+dataloader_num_workers: 4
+
+### output
+output_dir: saves/qwen3-14b/lora/sft_5
+logging_steps: 10
+save_steps: 1000
+plot_loss: true
+overwrite_output_dir: true
+save_only_model: false
+report_to: none  # choices: [none, wandb, tensorboard, swanlab, mlflow]
+load_best_model_at_end: true
+save_total_limit: 5
+
+
+### train
+per_device_train_batch_size: 4
+gradient_accumulation_steps: 8
+learning_rate: 2e-5
+weight_decay: 0.1
+gradient_checkpointing: true
+max_grad_norm: 0.5
+num_train_epochs: 5
+lr_scheduler_type: cosine
+optim: adamw_torch_fused
+warmup_ratio: 0.1
+bf16: true
+flash_attn: fa2
+ddp_timeout: 180000000
+resume_from_checkpoint: null
+neftune_noise_alpha: 5
+
+### generation
+max_length: 8192
+max_new_tokens: 512
+temperature: 0.5
+top_p: 0.9
+
+
+### eval
+eval_dataset: ai4privacy_val
+per_device_eval_batch_size: 2
+eval_strategy: steps
+eval_steps: 1000
+
+
+### fsdp
+

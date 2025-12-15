@@ -1,0 +1,8 @@
+{
+    "ai4privacy_train":{
+        "file_name": "llamafactory_ai4privacy_500k_train.jsonl"
+    },
+    "ai4privacy_val":{
+        "file_name": "llamafactory_ai4privacy_500k_val.jsonl"
+    }
+}
