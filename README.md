@@ -90,13 +90,13 @@ import torch
 tokenizer = AutoTokenizer.from_pretrained(args.model_path,use_fast=True)
 llm = LLM(model=args.model_path,tensor_parallel_size=args.tensor_parallel_size,seed=args.seed,gpu_memory_utilization=args.gpu_memory_utilization)
 sampling_params = SamplingParams(
-    temperature=0,
-    max_tokens=1024,
+    temperature=0.1,
+    max_tokens=512,
     repetition_penalty=1.05,
     stop=["\n\n\n","###","```python","<END>"],
     n=1,
     skip_special_tokens=True,
-    )
+    ) ### 根据需要修改生成参数
 
 
 prompt=f'{instruction}\n\n{texts}'
